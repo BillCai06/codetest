@@ -370,7 +370,7 @@ def compute_optimized_paths_for_radius(ordered_points, radius_combination, speed
             chord_start = point_on_circle(ordered_points[i], angle - np.pi, current_radius)
             chord_end = point_on_circle(ordered_points[i], nextangle, current_radius)
             radius_set.append(current_radius)
-            if prev_chord_end and i > 1 and circles_overlap(ordered_points[i], current_radius, ordered_points[i-1], radius_combination[(i-1) % len(radius_combination)]):
+            if prev_chord_end and i > 1 and circles_overlap(ordered_points[i], current_radius, ordered_points[i-1], radius_combination[i-2]):
                 chord_start = prev_chord_end
 
             final_meeting_point, final_wait_time = find_meeting_point_with_survey_final(
